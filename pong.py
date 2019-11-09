@@ -35,8 +35,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 2
-ball.dy = 2
+ball.dx = .15
+ball.dy = .15
 
 # Function
 def paddle_a_up():
@@ -73,4 +73,4 @@ while True:
 
     # move the ball
     ball.setx(ball.xcor() + ball.dx)
-    ball.sety(ball.ycor + ball.dy)
+    ball.sety(ball.ycor() + ball.dy)
