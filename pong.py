@@ -43,6 +43,13 @@ ball.goto(0, 0)
 ball.dx = .25
 ball.dy = -.25
 
+# Divider
+divider = turtle.Turtle()
+divider.speed(0)
+divider.color("white")
+divider.goto(0, -350)
+divider.goto(0, 350)
+
 # Pen
 pen = turtle.Turtle()
 pen.speed(0)
@@ -58,24 +65,30 @@ def paddle_a_up():
     y = paddle_a.ycor()
     y += 20
     paddle_a.sety(y)
+    if paddle_a.ycor() > 240:
+        paddle_a.goto(-350, 240)
 
 def paddle_a_down():
     y = paddle_a.ycor()
     y -= 20
     paddle_a.sety(y)
+    if paddle_a.ycor() < -230:
+        paddle_a.goto(-350, -230)
+    
 
 def paddle_b_up():
     y = paddle_b.ycor()
     y += 20
     paddle_b.sety(y)
-    
-    if paddle_b.ycor() > 300:
-         paddle_b.sety(290)
+    if paddle_b.ycor() > 240:
+         paddle_b.goto(350, 240)
 
 def paddle_b_down():
     y = paddle_b.ycor()
     y -= 20
     paddle_b.sety(y)
+    if paddle_b.ycor() < -230:
+        paddle_b.goto(350, -230)
 
 # Keyboard binding
 wn.listen()
