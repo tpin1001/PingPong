@@ -10,6 +10,10 @@ wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 
+# Score
+score_a = 0
+score_b = 0
+
 # Paddle A
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
@@ -18,6 +22,7 @@ paddle_a.color("white")
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
 paddle_a.penup()
 paddle_a.goto(-350, 0)
+
 
 # Paddle B
 paddle_b = turtle.Turtle()
@@ -63,6 +68,9 @@ def paddle_b_up():
     y = paddle_b.ycor()
     y += 20
     paddle_b.sety(y)
+    
+    if paddle_b.ycor() > 300:
+         paddle_b.sety(290)
 
 def paddle_b_down():
     y = paddle_b.ycor()
@@ -97,10 +105,16 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_a += 1
+        pen.clear()
+        pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
     
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_b += 1
+        pen.clear()
+        pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
 
        
     # Paddle and ball collision
