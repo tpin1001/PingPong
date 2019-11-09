@@ -9,3 +9,12 @@ wn.title("Pong by @t_pin1001")
 wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
+
+# Paddle A
+
+
+# Paddle B
+
+# Main game loop
+while True:
+    wn.update()
